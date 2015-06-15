@@ -11,13 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+	
 Route::get('teste/{nome}','TesteController@index');
 Route::get('notas','TesteController@notas');
 
 
-Route::get('blog','PostsController@index');
+Route::get('/','PostsController@index');
 Route::get('posts','PostsController@posts');

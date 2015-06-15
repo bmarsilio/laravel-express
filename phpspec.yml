@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: LaravelExpress
+        psr4_prefix: LaravelExpress
+        src_path: app

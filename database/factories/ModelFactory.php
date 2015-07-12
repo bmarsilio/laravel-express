@@ -26,3 +26,9 @@ $factory->define(LaravelExpress\Post::class, function ($faker) {
         'content' => $faker->paragraph,
     ];
 });
+
+$factory->define(LaravelExpress\Tag::class, function ($faker) {
+    return [
+        'name' => $faker->word
+    ];
+});

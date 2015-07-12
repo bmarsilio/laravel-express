@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use LaravelExpress\Http\Requests;
 use LaravelExpress\Http\Controllers\Controller;
+use LaravelExpress\Post;
 
 class PostsController extends Controller
 {
@@ -16,7 +17,9 @@ class PostsController extends Controller
      */
     public function index()
     {
-        return view('blog.index');
+        $posts = Post::all();
+
+        return view('posts.index', compact('posts'));
     }
 
     public function posts()

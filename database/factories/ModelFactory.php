@@ -19,3 +19,10 @@ $factory->define(LaravelExpress\User::class, function ($faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(LaravelExpress\Post::class, function ($faker) {
+    return [
+        'title' => $faker->sentence,
+        'content' => $faker->paragraph,
+    ];
+});

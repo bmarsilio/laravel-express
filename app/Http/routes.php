@@ -12,9 +12,11 @@
 */
 
 	
-Route::get('teste/{nome}','TesteController@index');
-Route::get('notas','TesteController@notas');
+Route::get('teste/{nome}', 'TesteController@index');
+Route::get('notas', 'TesteController@notas');
 
 
-Route::get('/','PostsController@index');
-Route::get('posts','PostsController@posts');
+Route::get('/', 'PostsController@index');
+Route::get('posts', 'PostsController@posts');
+
+Route::get('blog', 'PostsController@index');

@@ -11,7 +11,7 @@
 |
 */
 
-	
+
 Route::get('teste/{nome}', 'TesteController@index');
 Route::get('notas', 'TesteController@notas');
 
@@ -22,7 +22,7 @@ Route::get('posts', 'PostsController@posts');
 Route::get('blog', 'PostsController@index');
 
 
-Route::group(['prefix'=>'admin'], function() {
+Route::group(['prefix'=>'admin', 'middleware'=>'auth'], function() {
     Route::group(['prefix'=>'posts'], function() {
         Route::get('', ['as'=>'admin.posts.index', 'uses'=>'PostsAdminController@index']);
         Route::get('create', ['as'=>'admin.posts.create', 'uses'=>'PostsAdminController@create']);
@@ -32,4 +32,33 @@ Route::group(['prefix'=>'admin'], function() {
         Route::get('destroy/{id}', ['as'=>'admin.posts.destroy', 'uses'=>'PostsAdminController@destroy']);
     });
 });
+
+Route::group(['prefix'=>'auth'], function() {
+    Route::get('login', 'Auth\AuthController@getLogin');
+    Route::post('login', 'Auth\AuthController@postLogin');
+    Route::get('logout', 'Auth\AuthController@getLogout');
+});
+
+
+/*login
+
+Route::get('/auth', function(){
+    if(Auth::attempt(['email'=>'bruno.marsilio@hotmail.com', 'password'=>'123456'])) {
+        return 'true';
+    }else {
+        return 'false';
+    }
+
+    if(Auth::check()) {
+
+    }
+});
+
+
+logout
+Route::get('/auth/logout', function(){
+    Auth::logout();
+});
+*/
+
 
